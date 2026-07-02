@@ -1,0 +1,48 @@
+{
+  "manifest_version": 1,
+  "build": {
+    "id": "mesa-main-20260702-1532",
+    "repository": "https://gitlab.freedesktop.org/mesa/mesa.git",
+    "branch": "main",
+    "commit": "4f2c9b8d7a13f7e8d1a0b7b2e0d2d4f6c9a1b2c3",
+    "created": "2026-07-02T15:32:12Z"
+  },
+  "artifacts": [
+    {
+      "component": "mesa",
+      "git_sha": "4f2c9b8d7a13f7e8d1a0b7b2e0d2d4f6c9a1b2c3",
+      "bucket": "artifacts",
+      "object": "mesa/4f2c9b8d7a13f7e8d1a0b7b2e0d2d4f6c9a1b2c3.tar.zst",
+      "compression": "tar.zst",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "size": 183429812
+    },
+    {
+      "component": "vulkancts",
+      "git_sha": "1a2b3c4d5e6f7081928374655647382910abcdef",
+      "bucket": "artifacts",
+      "object": "vulkancts/1a2b3c4d5e6f7081928374655647382910abcdef.tar.zst",
+      "compression": "tar.zst",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "size": 245987321
+    },
+    {
+      "component": "piglit",
+      "git_sha": "abcdef1234567890abcdef1234567890abcdef12",
+      "bucket": "artifacts",
+      "object": "piglit/abcdef1234567890abcdef1234567890abcdef12.tar.zst",
+      "compression": "tar.zst",
+      "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "size": 125634987
+    },
+    {
+      "component": "igt",
+      "git_sha": "fedcba9876543210fedcba9876543210fedcba98",
+      "bucket": "artifacts",
+      "object": "igt/fedcba9876543210fedcba9876543210fedcba98.tar.zst",
+      "compression": "tar.zst",
+      "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "size": 89456321
+    }
+  ]
+}
