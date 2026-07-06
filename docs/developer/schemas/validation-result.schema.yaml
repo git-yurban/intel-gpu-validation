@@ -1,0 +1,79 @@
+schema:
+  name: ValidationResult
+  version: "1.0"
+
+description: >
+  Canonical schema describing the outcome of a validation execution.
+
+dependencies:
+  - Primitive Types
+  - Domain Types
+
+type: object
+
+fields:
+
+  validationResultId:
+    type: ValidationResultId
+    required: true
+    description: >
+      Unique identifier for the Validation Result.
+
+  workerManifest:
+    type: WorkerManifest
+    required: true
+    description: >
+      Worker Manifest used for the execution.
+
+  outcome:
+    type: ExecutionOutcome
+    required: true
+    description: >
+      Overall outcome of the validation execution.
+
+  started:
+    type: CreationTimestamp
+    required: true
+    description: >
+      Time at which execution began.
+
+  completed:
+    type: CompletionTimestamp
+    required: true
+    description: >
+      Time at which execution completed.
+
+  artifacts:
+    type: List<ArtifactReference>
+    required: false
+    description: >
+      References to logs, crash dumps, screenshots, performance reports,
+      and other execution artifacts.
+
+  metadata:
+    type: Metadata
+    required: false
+    description: >
+      Optional implementation-specific metadata.
+
+constraints:
+  - validationResultId MUST be globally unique.
+  - completed MUST NOT precede started.
+  - artifacts SHOULD reference immutable published artifacts.
+
+examples:
+  - validationResultId: "vr-000001"
+
+    workerManifest: <WorkerManifest>
+
+    outcome: Passed
+
+    started: "2026-07-06T18:42:15Z"
+
+    completed: "2026-07-06T18:47:02Z"
+
+    artifacts:
+      - "artifact://logs/run-000001.log"
+
+    metadata:
+      worker: "worker-17"

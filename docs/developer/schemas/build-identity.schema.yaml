@@ -1,0 +1,35 @@
+schema:
+  name: BuildIdentity
+  version: "1.0"
+
+description: >
+  Canonical schema for the Build Identity domain object.
+
+dependencies:
+  - Primitive Types
+  - Domain Types
+
+type: object
+
+fields:
+
+  id:
+    type: BuildIdentity
+    required: true
+    description: >
+      Globally unique identifier for a published Build.
+
+  version:
+    type: String
+    required: true
+    description: >
+      Version of the Build Identity schema.
+
+constraints:
+  - id MUST be globally unique.
+  - id MUST be immutable.
+  - version MUST identify the schema version.
+
+examples:
+  - id: "bld-7f6c2d3b"
+    version: "1.0"

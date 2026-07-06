@@ -1,0 +1,71 @@
+schema:
+  name: ValidationRequest
+  version: "1.0"
+
+description: >
+  Canonical schema describing a request to validate a published Build.
+
+dependencies:
+  - Primitive Types
+  - Domain Types
+
+type: object
+
+fields:
+
+  validationRequestId:
+    type: ValidationRequestId
+    required: true
+    description: >
+      Unique identifier for the Validation Request.
+
+  buildIdentity:
+    type: BuildIdentity
+    required: true
+    description: >
+      Published Build to be validated.
+
+  workload:
+    type: Workload
+    required: true
+    description: >
+      Validation workload to execute.
+
+  executionPolicy:
+    type: ExecutionPolicy
+    required: false
+    description: >
+      Optional execution policy supplied by the requestor.
+
+  parameters:
+    type: ParameterMap
+    required: false
+    description: >
+      Optional execution parameters.
+
+  metadata:
+    type: Metadata
+    required: false
+    description: >
+      Optional implementation-specific metadata.
+
+constraints:
+  - validationRequestId MUST be globally unique.
+  - buildIdentity MUST reference a published Build.
+  - workload MUST identify exactly one validation workload.
+
+examples:
+  - validationRequestId: "vr-000001"
+
+    buildIdentity: <BuildIdentity>
+
+    workload: <Workload>
+
+    executionPolicy: <ExecutionPolicy>
+
+    parameters:
+      shard: "3"
+      retryCount: "1"
+
+    metadata:
+      submittedBy: "CI"

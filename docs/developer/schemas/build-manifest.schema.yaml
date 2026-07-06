@@ -1,0 +1,48 @@
+schema:
+  name: BuildManifest
+  version: "1.0"
+
+description: >
+  Canonical schema describing a published Build and the Artifact Packages
+  required to reproduce and validate it.
+
+dependencies:
+  - Primitive Types
+  - Domain Types
+
+type: object
+
+fields:
+
+  buildIdentity:
+    type: BuildIdentity
+    required: true
+    description: >
+      Unique identity of the published Build.
+
+  artifactPackages:
+    type: List<ArtifactPackage>
+    required: true
+    description: >
+      Artifact Packages comprising the published Build.
+
+  metadata:
+    type: Metadata
+    required: false
+    description: >
+      Optional implementation-specific metadata.
+
+constraints:
+  - buildIdentity MUST identify exactly one published Build.
+  - artifactPackages MUST contain at least one Artifact Package.
+  - artifactPackages MUST NOT contain duplicate ArtifactPackageIds.
+
+examples:
+  - buildIdentity: <BuildIdentity>
+
+    artifactPackages:
+      - <ArtifactPackage>
+
+    metadata:
+      branch: main
+      configuration: release

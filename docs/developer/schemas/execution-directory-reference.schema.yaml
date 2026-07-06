@@ -1,0 +1,27 @@
+schema:
+  name: ExecutionDirectoryReference
+  version: "1.0"
+
+description: >
+  Canonical schema identifying a prepared Execution Directory.
+
+dependencies:
+  - Primitive Types
+  - Domain Types
+
+type: object
+
+fields:
+
+  executionDirectoryReference:
+    type: ExecutionDirectoryReference
+    required: true
+    description: >
+      Opaque reference to a prepared Execution Directory.
+
+constraints:
+  - executionDirectoryReference MUST reference exactly one prepared Execution Directory.
+  - executionDirectoryReference MUST remain immutable for the lifetime of the execution.
+
+examples:
+  - executionDirectoryReference: "execdir-8d3c0d45"

@@ -1,0 +1,63 @@
+schema:
+  name: WorkerManifest
+  version: "1.0"
+
+description: >
+  Canonical schema describing the immutable execution contract assigned
+  to a Validation Worker.
+
+dependencies:
+  - Primitive Types
+  - Domain Types
+
+type: object
+
+fields:
+
+  workerManifestId:
+    type: WorkerManifestId
+    required: true
+    description: >
+      Unique identifier for the Worker Manifest.
+
+  validationRequest:
+    type: ValidationRequest
+    required: true
+    description: >
+      Validation Request assigned to the worker.
+
+  executionDirectory:
+    type: ExecutionDirectoryReference
+    required: true
+    description: >
+      Prepared Execution Directory for this execution.
+
+  environment:
+    type: EnvironmentVariables
+    required: false
+    description: >
+      Environment variables supplied to the validation process.
+
+  metadata:
+    type: Metadata
+    required: false
+    description: >
+      Optional implementation-specific metadata.
+
+constraints:
+  - workerManifestId MUST be globally unique.
+  - validationRequest MUST reference exactly one Validation Request.
+  - executionDirectory MUST reference exactly one prepared Execution Directory.
+
+examples:
+  - workerManifestId: "wm-000001"
+
+    validationRequest: <ValidationRequest>
+
+    executionDirectory: <ExecutionDirectoryReference>
+
+    environment:
+      VK_ICD_FILENAMES: "/etc/vulkan/icd.d/intel_icd.x86_64.json"
+
+    metadata:
+      assignedWorker: "worker-17"

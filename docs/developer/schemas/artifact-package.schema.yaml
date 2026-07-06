@@ -1,0 +1,64 @@
+schema:
+  name: ArtifactPackage
+  version: "1.0"
+
+description: >
+  Canonical schema for an Artifact Package.
+
+dependencies:
+  - Primitive Types
+  - Domain Types
+
+type: object
+
+fields:
+
+  artifactPackageId:
+    type: ArtifactPackageId
+    required: true
+    description: >
+      Globally unique identifier for the Artifact Package.
+
+  packageType:
+    type: ArtifactPackageType
+    required: true
+    description: >
+      Classification of the package contents.
+
+  location:
+    type: URI
+    required: true
+    description: >
+      Location of the package within Artifact Storage.
+
+  digest:
+    type: ArtifactDigest
+    required: true
+    description: >
+      Cryptographic digest used to verify package integrity.
+
+  compression:
+    type: CompressionFormat
+    required: true
+    description: >
+      Compression algorithm applied to the package.
+
+  size:
+    type: UInt64
+    required: true
+    description: >
+      Size of the package in bytes.
+
+constraints:
+  - artifactPackageId MUST be globally unique.
+  - artifactPackageId MUST be immutable.
+  - digest MUST match the package contents.
+  - size MUST be greater than or equal to zero.
+
+examples:
+  - artifactPackageId: "pkg-runtime-001"
+    packageType: Runtime
+    location: "artifact://packages/runtime-001"
+    digest: "sha256:8d9b5f1c..."
+    compression: Zstd
+    size: 158734221

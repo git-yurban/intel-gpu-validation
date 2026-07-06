@@ -1,0 +1,18 @@
+docs/
+    PROJECT_HANDOFF.md
+    handoff/
+        01-executive-summary.md
+        02-system-architecture.md
+        03-repository-layout.md
+        04-builder.md
+        05-artifact-manager.md
+        06-manifests.md
+        07-scheduler.md
+        08-worker.md
+        09-storage.md
+        10-cache.md
+        11-buildbot.md
+        12-testing.md
+        13-deployment.md
+        14-roadmap.md
+        15-adr.md
